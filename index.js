@@ -65,10 +65,23 @@ class goat{
         this.hairs = hairs;
         this.sound = sound;
         this._weight = weight;
+        this._total = 20;
     }
     get weight(){
         return `${this._weight}Kg`
     } 
+    get total(){
+        return `${this._total / 200 * 100}% of the animals are ${this.name}`
+    }
+    set total(value){
+        if (value > 100) {
+            value = 100;
+        }
+        else if (value < 10) {
+            value = 10
+        }
+        this._total = value;
+    }
 
     name = "Goat";
     
@@ -87,4 +100,6 @@ Goat.weight = 35;
 console.log(Goat.weight)
 
 const Patience = new goat (`hairy`, `bleats`, 22);
-console.log(Patience.weight)
+Patience.total = 10;
+console.log(Patience.weight);
+console.log(Patience.total);
